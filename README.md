@@ -1,0 +1,2 @@
+# Smart-Home-Automation-System
+The Smart Home Automation System (Voice Controlled) enhances convenience, security, and efficiency. Using voice recognition, it allows users to control household appliances with simple commands, removing the need for switches or remotes. This innovative solution simplifies home management and improves daily life.
