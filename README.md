@@ -1,7 +1,1 @@
-# Home_Automation_Project
-
-Create a seperate private repository,
-Add Static, templates, app.py and requirements.txt in the repo
-connect the repository to Render and deplay the flask app!
-
-Full Video Tutorial here:- https://youtu.be/3D0wdIP33LI
+The Smart Home Automation System (Voice Controlled) enhances convenience, security, and efficiency. Using voice recognition, it allows users to control household appliances with simple commands, removing the need for switches or remotes. This innovative solution simplifies home management and improves daily life.
