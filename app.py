@@ -25,7 +25,7 @@ def send_cmd():
 @app.route('/alert')
 def receve_alert():
     alert=1
-@app.route('/alert_send')
+@app.route('/send_alert')
 def send_alert():
     return alert
 
