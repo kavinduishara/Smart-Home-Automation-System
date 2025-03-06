@@ -18,6 +18,7 @@ def process_cmd():
 
 @app.route('/cmd_out') #Add this route after the server url in esp code!
 def send_cmd():
+    print(cmd)
     return cmd
 
 if __name__ == "__main__":
