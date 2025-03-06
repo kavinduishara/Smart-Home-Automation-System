@@ -96,17 +96,5 @@ if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window && 'spe
 } else {
     alert('Not supported in this browser!');
 }
-setInterval(() => {
-    fetch('/send_alert', {
-    })
-    .then(response => response.text()) // Convert the response to text
-    .then(data => {
-        if (data === "1") {
-            console.log("Response is 1");
-        }
-    })
-    .catch(error => console.error('Error:', error));
-}, 1000); // Check every second
-
 
 
