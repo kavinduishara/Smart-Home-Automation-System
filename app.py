@@ -22,12 +22,5 @@ def send_cmd():
     print(cmd)
     return cmd
 
-@app.route('/alert')
-def receve_alert():
-    alert=1
-@app.route('/send_alert')
-def send_alert():
-    return alert
-
 if __name__ == "__main__":
     app.run(debug=1)
