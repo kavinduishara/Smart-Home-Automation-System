@@ -9,6 +9,7 @@ def index():
     return render_template('index.html')
 
 cmd="0"
+alert=0
 @app.route('/cmd_in',methods=['POST']) 
 def process_cmd():
     global cmd
@@ -20,6 +21,13 @@ def process_cmd():
 def send_cmd():
     print(cmd)
     return cmd
+
+@app.route('/alert')
+def receve_alert():
+    alert=1
+@app.route('/alert_send')
+def send_alert():
+    return alert
 
 if __name__ == "__main__":
     app.run(debug=1)
