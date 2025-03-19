@@ -2,8 +2,8 @@ FROM openjdk:11-jre-slim
 
 WORKDIR /app
 
-# Copy the built JAR file
-COPY target/HomeAutomation-0.0.1-SNAPSHOT.jar /app/HomeAutomation.jar
+# Correct path based on repo structure
+COPY BackEnd/HomeAutomation/target/HomeAutomation-0.0.1-SNAPSHOT.jar /app/HomeAutomation.jar
 
 EXPOSE 8080
 
