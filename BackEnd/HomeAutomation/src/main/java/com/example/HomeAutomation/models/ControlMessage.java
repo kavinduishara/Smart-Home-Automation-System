@@ -5,6 +5,8 @@ public class ControlMessage {
     private String type;
     private String content;
 
+     public ControlMessage() {}
+
     public String getUser() {
         return user;
     }
