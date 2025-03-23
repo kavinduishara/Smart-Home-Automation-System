@@ -1,8 +1,14 @@
 package com.example.HomeAutomation.controller;
 
 import com.example.HomeAutomation.models.ControlMessage;
+import com.example.HomeAutomation.models.FirebaseToken;
+import com.example.HomeAutomation.repository.FirebaseTokenRepository;
 import com.example.HomeAutomation.service.InPutService;
+import com.example.HomeAutomation.service.NotificationService;
 import com.example.HomeAutomation.service.OutPutService;
+import com.google.firebase.messaging.FirebaseMessaging;
+import com.google.firebase.messaging.Message;
+import com.google.firebase.messaging.Notification;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.Payload;
@@ -15,6 +21,11 @@ import java.util.Objects;
 @Controller
 @CrossOrigin
 public class MessageController {
+
+    @Autowired
+    private final NotificationService notificationService;
+
+
     @Autowired
     SimpMessagingTemplate simpMessagingTemplate;
     @Autowired
@@ -22,6 +33,12 @@ public class MessageController {
 
     @Autowired
     InPutService inPutService;
+    @Autowired
+    FirebaseTokenRepository firebaseTokenRepository;
+
+    public MessageController(NotificationService notificationService) {
+        this.notificationService = notificationService;
+    }
 
     @MessageMapping("/fromhome")
     public void sendToUser(@Payload ControlMessage controlMessage){
@@ -42,11 +59,39 @@ public class MessageController {
             System.out.println(input);
             System.out.println(messageBody);
             inPutService.saveAlert(Long.valueOf(input),messageBody);
+
         }
+        sendPushNotification(controlMessage.getUser(), controlMessage.getType(), controlMessage.getContent());
+
     }
     @MessageMapping("/fromuser")
     public void sendToHome(@Payload ControlMessage controlMessage){
         System.out.println(controlMessage.getContent()+"fromuser");
         simpMessagingTemplate.convertAndSendToUser(controlMessage.getUser(),"/home", controlMessage);
     }
+    public void sendPushNotification(String username, String title, String messageBody) {
+        FirebaseToken userToken = firebaseTokenRepository.findByUsername(username);
+
+        if (userToken != null) {
+            String deviceToken = userToken.getToken();
+
+            Message message = Message.builder()
+                    .setToken(deviceToken)
+                    .setNotification(Notification.builder()
+                            .setTitle(title)
+                            .setBody(messageBody)
+                            .build())
+                    .build();
+
+            try {
+                String response = FirebaseMessaging.getInstance().send(message);
+                System.out.println("Successfully sent message: " + response);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else {
+            System.out.println("No token found for user: " + username);
+        }
+    }
+
 }

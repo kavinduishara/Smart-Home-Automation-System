@@ -26,6 +26,16 @@ public class Users {
     @Column(nullable = false)
     private String password;
 
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    private String token;
+
     @OneToMany(
             mappedBy = "users",
             cascade = CascadeType.ALL,
