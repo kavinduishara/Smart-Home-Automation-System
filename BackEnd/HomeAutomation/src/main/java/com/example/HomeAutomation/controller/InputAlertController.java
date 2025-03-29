@@ -1,7 +1,6 @@
 package com.example.HomeAutomation.controller;
 
 import com.example.HomeAutomation.models.InPutAlert;
-import com.example.HomeAutomation.repository.InPutAlertRepo;
 import com.example.HomeAutomation.service.InPutService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -10,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/inputsAlerts")
+@RequestMapping("/inputsAlert")
 @CrossOrigin
 public class InputAlertController {
 
