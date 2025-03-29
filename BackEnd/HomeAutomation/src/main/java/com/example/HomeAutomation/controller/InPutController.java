@@ -35,7 +35,7 @@ public class InPutController {
     public Inputs addOutPut(@RequestBody Inputs inPuts,@PathVariable String username){
         return inPutService.addInputs(inPuts,username);
     }
-    @GetMapping("/unread/{username}")
+    @GetMapping("alert/unread/{username}")
     public List<String> newAlerts(@PathVariable String username) {
         List<String> alerts = new ArrayList<>();
         for (InPutAlert inPutAlert : inPutService.getUnresolvedAlerts(username)) {
@@ -44,12 +44,12 @@ public class InPutController {
         }
         return alerts;
     }
-    @GetMapping("/{username}")
+    @GetMapping("/alert/{username}")
     public List<InPutAlert> Alerts(@PathVariable String username){
         return inPutService.getAlerts(username);
     }
 
-    @GetMapping("/")
+    @GetMapping("/test")
     public String alertcontroler(){
         return "hi there";
     }
