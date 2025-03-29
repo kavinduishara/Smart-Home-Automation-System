@@ -23,7 +23,7 @@ public class InputAlertController {
 
     @GetMapping("/")
     public String alertcontroler(){
-        return "hi";
+        return "hi there";
     }
     @GetMapping("/unread/{username}")
     public List<String> newAlerts(@PathVariable String username) {
