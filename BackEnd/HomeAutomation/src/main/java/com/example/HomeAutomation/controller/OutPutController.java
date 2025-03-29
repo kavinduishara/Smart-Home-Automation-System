@@ -22,6 +22,10 @@ public class OutPutController {
     public List<OutPuts> getOutPuts(){
         return outPutService.allOutPuts();
     }
+    @GetMapping("/test")
+    public String test(){
+        return "test";
+    }
     @GetMapping("/get/{username}")
     public List<OutPuts> getOutPut(@PathVariable String username){
 
