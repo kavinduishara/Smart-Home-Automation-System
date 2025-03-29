@@ -22,7 +22,7 @@ public class OutPutController {
     public List<OutPuts> getOutPuts(){
         return outPutService.allOutPuts();
     }
-    @GetMapping("/test")
+    @RequestMapping("/test")
     public String test(){
         return "test";
     }
