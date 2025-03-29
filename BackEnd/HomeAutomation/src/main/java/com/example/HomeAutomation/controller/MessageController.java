@@ -16,6 +16,7 @@ import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Controller
@@ -44,7 +45,6 @@ public class MessageController {
     public void sendToUser(@Payload ControlMessage controlMessage){
         System.out.println("fromhome");
         System.out.println(controlMessage.getContent());
-        simpMessagingTemplate.convertAndSendToUser(controlMessage.getUser(),"/user", controlMessage);
         if(Objects.equals(controlMessage.getType(), "outputs")){
             String[] message =controlMessage.getContent().split(" ");
             String output = message[0];
@@ -53,14 +53,17 @@ public class MessageController {
             System.out.println(status);
             outPutService.flip(Long.parseLong(output),Objects.equals(status, "1"));
         } else if (Objects.equals(controlMessage.getType(), "inputs")) {
-            String[] message =controlMessage.getContent().split(" ");
+            String[] message =controlMessage.getContent().split("   ");
             String input = message[0];
             String messageBody = message[1];
             System.out.println(input);
             System.out.println(messageBody);
             inPutService.saveAlert(Long.valueOf(input),messageBody);
+            inPutService.getInputName(Long.parseLong(input));
+            controlMessage.setContent(input+"   "+messageBody+"   "+ LocalDateTime.now()+"   "+inPutService.getInputName(Long.parseLong(input)));
 
         }
+        simpMessagingTemplate.convertAndSendToUser(controlMessage.getUser(),"/user", controlMessage);
         sendPushNotification(controlMessage.getUser(), controlMessage.getType(), controlMessage.getContent());
 
     }
@@ -68,6 +71,11 @@ public class MessageController {
     public void sendToHome(@Payload ControlMessage controlMessage){
         System.out.println(controlMessage.getContent()+"fromuser");
         simpMessagingTemplate.convertAndSendToUser(controlMessage.getUser(),"/home", controlMessage);
+        if (Objects.equals(controlMessage.getType(), "inputs")) {
+            String input = controlMessage.getContent();
+            System.out.println(input);
+            inPutService.resolveAlert(Long.valueOf(input));
+        }
     }
     public void sendPushNotification(String username, String title, String messageBody) {
         FirebaseToken userToken = firebaseTokenRepository.findByUsername(username);

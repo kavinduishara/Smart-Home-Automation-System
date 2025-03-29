@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -29,6 +30,9 @@ public class InPutService {
         public List<Inputs> get(String username){
             return inPutRepo.findByUsers_UserId(userRepo.findByUsername(username).getUserId());
         }
+        public Inputs getInputName(long id){
+            return inPutRepo.findById(id).get();
+        }
         public List<Inputs> allInPuts(){
             return inPutRepo.findAll();
         }
@@ -45,6 +49,21 @@ public class InPutService {
             if (inPuts1.isEmpty()){
                 return;
             }
-            inPutAlertRepo.save(new InPutAlert(LocalDateTime.now(),message,inPuts1.get()));
+            inPutAlertRepo.save(new InPutAlert(LocalDateTime.now(),message,inPuts1.get(),false));
+        }
+        public void resolveAlert(Long id){
+            List<InPutAlert> inPuts1= inPutAlertRepo.findByInPutId(id);
+
+            inPuts1.forEach(inPutAlert -> inPutAlert.setRead(true));
+
+
+        }
+        public List<InPutAlert> getAlerts(String username){
+
+            return inPutAlertRepo.findAlertsByUserId(userRepo.findByUsername(username).getUserId());
+        }
+
+        public  List<InPutAlert> getUnresolvedAlerts(String username){
+            return inPutAlertRepo.findByInPut_User_IdAndReadFalse(userRepo.findByUsername(username).getUserId());
         }
 }

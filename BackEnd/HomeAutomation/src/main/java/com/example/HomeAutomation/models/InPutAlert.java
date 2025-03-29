@@ -14,6 +14,18 @@ public class InPutAlert {
     private LocalDateTime alertTime;
     @Column(nullable = false)
     private String alertMessage;
+
+    @Column(nullable = false)
+    private boolean read;
+
+    public boolean isRead() {
+        return read;
+    }
+
+    public void setRead(boolean read) {
+        this.read = read;
+    }
+
     @ManyToOne
     @JoinColumn(name = "inPutId")
     @JsonIgnore
@@ -22,10 +34,11 @@ public class InPutAlert {
     public InPutAlert() {
     }
 
-    public InPutAlert(LocalDateTime alertTime, String alertMessage, Inputs inPut) {
+    public InPutAlert(LocalDateTime alertTime, String alertMessage, Inputs inPut,boolean read) {
         this.alertTime = alertTime;
         this.alertMessage = alertMessage;
         this.inPut = inPut;
+        this.read=read;
     }
 
     public long getId() {
