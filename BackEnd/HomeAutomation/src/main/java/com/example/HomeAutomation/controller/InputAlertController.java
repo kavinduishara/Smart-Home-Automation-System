@@ -6,6 +6,7 @@ import com.example.HomeAutomation.service.InPutService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -21,12 +22,13 @@ public class InputAlertController {
     }
 
     @GetMapping("/unread/{username}")
-    public List<String> newAlerts(@PathVariable String username){
-        List<String> alerts = null;
-        inPutService.getUnresolvedAlerts(username).forEach(
-                inPutAlert -> {
-                    alerts.add(inPutAlert.getInPut()+"   "+inPutAlert.getAlertMessage()+"   "+inPutAlert.getAlertTime()+"   "+inPutService.getInputName(inPutAlert.getId()));
-                });
+    public List<String> newAlerts(@PathVariable String username) {
+        List<String> alerts = new ArrayList<>();
+        for (InPutAlert inPutAlert : inPutService.getUnresolvedAlerts(username)) {
+            alerts.add(inPutAlert.getInPut() + "   " + inPutAlert.getAlertMessage() + "   " +
+                    inPutAlert.getAlertTime() + "   " + inPutService.getInputName(inPutAlert.getId()));
+        }
         return alerts;
     }
+
 }
