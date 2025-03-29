@@ -21,6 +21,10 @@ public class InputAlertController {
         return inPutService.getAlerts(username);
     }
 
+    @GetMapping("/")
+    public String alertcontroler(){
+        return "hi";
+    }
     @GetMapping("/unread/{username}")
     public List<String> newAlerts(@PathVariable String username) {
         List<String> alerts = new ArrayList<>();
