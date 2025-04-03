@@ -8,7 +8,6 @@ C:\Users\KAVINDU\Desktop\embeded_project\Smart-Home-Automation-System\BackEnd\Ho
 C:\Users\KAVINDU\Desktop\embeded_project\Smart-Home-Automation-System\BackEnd\HomeAutomation\src\main\java\com\example\HomeAutomation\filter\JwtFilter.java
 C:\Users\KAVINDU\Desktop\embeded_project\Smart-Home-Automation-System\BackEnd\HomeAutomation\src\main\java\com\example\HomeAutomation\HomeAutomationApplication.java
 C:\Users\KAVINDU\Desktop\embeded_project\Smart-Home-Automation-System\BackEnd\HomeAutomation\src\main\java\com\example\HomeAutomation\models\ControlMessage.java
-C:\Users\KAVINDU\Desktop\embeded_project\Smart-Home-Automation-System\BackEnd\HomeAutomation\src\main\java\com\example\HomeAutomation\models\FirebaseToken.java
 C:\Users\KAVINDU\Desktop\embeded_project\Smart-Home-Automation-System\BackEnd\HomeAutomation\src\main\java\com\example\HomeAutomation\models\InPutAlert.java
 C:\Users\KAVINDU\Desktop\embeded_project\Smart-Home-Automation-System\BackEnd\HomeAutomation\src\main\java\com\example\HomeAutomation\models\Inputs.java
 C:\Users\KAVINDU\Desktop\embeded_project\Smart-Home-Automation-System\BackEnd\HomeAutomation\src\main\java\com\example\HomeAutomation\models\Message.java
@@ -16,16 +15,13 @@ C:\Users\KAVINDU\Desktop\embeded_project\Smart-Home-Automation-System\BackEnd\Ho
 C:\Users\KAVINDU\Desktop\embeded_project\Smart-Home-Automation-System\BackEnd\HomeAutomation\src\main\java\com\example\HomeAutomation\models\StatusHistory.java
 C:\Users\KAVINDU\Desktop\embeded_project\Smart-Home-Automation-System\BackEnd\HomeAutomation\src\main\java\com\example\HomeAutomation\models\UserPrincipal.java
 C:\Users\KAVINDU\Desktop\embeded_project\Smart-Home-Automation-System\BackEnd\HomeAutomation\src\main\java\com\example\HomeAutomation\models\Users.java
-C:\Users\KAVINDU\Desktop\embeded_project\Smart-Home-Automation-System\BackEnd\HomeAutomation\src\main\java\com\example\HomeAutomation\repository\FirebaseTokenRepository.java
 C:\Users\KAVINDU\Desktop\embeded_project\Smart-Home-Automation-System\BackEnd\HomeAutomation\src\main\java\com\example\HomeAutomation\repository\InPutAlertRepo.java
 C:\Users\KAVINDU\Desktop\embeded_project\Smart-Home-Automation-System\BackEnd\HomeAutomation\src\main\java\com\example\HomeAutomation\repository\InPutRepo.java
 C:\Users\KAVINDU\Desktop\embeded_project\Smart-Home-Automation-System\BackEnd\HomeAutomation\src\main\java\com\example\HomeAutomation\repository\OutPutRepo.java
 C:\Users\KAVINDU\Desktop\embeded_project\Smart-Home-Automation-System\BackEnd\HomeAutomation\src\main\java\com\example\HomeAutomation\repository\StatusHistoryRepo.java
 C:\Users\KAVINDU\Desktop\embeded_project\Smart-Home-Automation-System\BackEnd\HomeAutomation\src\main\java\com\example\HomeAutomation\repository\UserRepo.java
-C:\Users\KAVINDU\Desktop\embeded_project\Smart-Home-Automation-System\BackEnd\HomeAutomation\src\main\java\com\example\HomeAutomation\service\FirebaseConfig.java
 C:\Users\KAVINDU\Desktop\embeded_project\Smart-Home-Automation-System\BackEnd\HomeAutomation\src\main\java\com\example\HomeAutomation\service\InPutService.java
 C:\Users\KAVINDU\Desktop\embeded_project\Smart-Home-Automation-System\BackEnd\HomeAutomation\src\main\java\com\example\HomeAutomation\service\JWTService.java
 C:\Users\KAVINDU\Desktop\embeded_project\Smart-Home-Automation-System\BackEnd\HomeAutomation\src\main\java\com\example\HomeAutomation\service\MyUserDetailsService.java
-C:\Users\KAVINDU\Desktop\embeded_project\Smart-Home-Automation-System\BackEnd\HomeAutomation\src\main\java\com\example\HomeAutomation\service\NotificationService.java
 C:\Users\KAVINDU\Desktop\embeded_project\Smart-Home-Automation-System\BackEnd\HomeAutomation\src\main\java\com\example\HomeAutomation\service\OutPutService.java
 C:\Users\KAVINDU\Desktop\embeded_project\Smart-Home-Automation-System\BackEnd\HomeAutomation\src\main\java\com\example\HomeAutomation\service\UserService.java

@@ -3,7 +3,7 @@ package com.example.HomeAutomation.models;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;  // Corrected the import here
+import org.springframework.data.annotation.Id;
 
 @Entity
 public class FirebaseToken {
@@ -43,4 +43,5 @@ public class FirebaseToken {
     public void setToken(String token) {
         this.token = token;
     }
+// Getters and Setters
 }
