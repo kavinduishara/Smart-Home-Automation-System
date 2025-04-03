@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -54,7 +53,7 @@ public class InPutService {
         public void resolveAlert(Long id){
             List<InPutAlert> inPuts1= inPutAlertRepo.findByInPutId(id);
 
-            inPuts1.forEach(inPutAlert -> inPutAlert.setRead(true));
+            inPuts1.forEach(inPutAlert -> inPutAlert.setResolved(true));
 
 
         }
