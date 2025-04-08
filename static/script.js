@@ -95,6 +95,4 @@ if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window && 'spe
     });
 } else {
     alert('Not supported in this browser!');
-}
-
-
+} 
