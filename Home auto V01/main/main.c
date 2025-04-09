@@ -13,11 +13,11 @@
 #include "esp_timer.h"
 
 // WiFi credentials
-#define WIFI_SSID "YOUR_WIFI_SSID"
-#define WIFI_PASS "YOUR_WIFI_PASSWORD"
+#define WIFI_SSID "gl76"
+#define WIFI_PASS "11111111"
 
 // Firebase URL
-#define FIREBASE_URL "https://your-project-id.firebaseio.com/door_status.json"
+#define FIREBASE_URL "https://home-automation-de3c9-default-rtdb.firebaseio.com/"
 
 // Keypad GPIOs
 #define ROW1 32
